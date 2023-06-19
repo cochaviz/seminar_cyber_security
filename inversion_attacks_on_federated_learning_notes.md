@@ -26,11 +26,11 @@ status-quo. -->
 
 # Introduction
 
-[ ] why inversion attacks on federated learning are important
-  [ ] why inversion attacks in particular
-  [ ] why federated learning in particular
-    [ ] what does federated learning try to solve
-    [ ] why should we care about its safety
+- [ ] why inversion attacks on federated learning are important
+  - [ ] why inversion attacks in particular
+  - [ ] why federated learning in particular
+    - [ ] what does federated learning try to solve
+    - [ ] why should we care about its safety
 
 => We know why we should be concerned with model inversion on federated learning
 
@@ -91,8 +91,8 @@ set in its model to perform the approximation.
 
 ## Model Inversion
 
-[ ] What is model inversion
-[ ] How does it relate to different attacks
+- [ ] What is model inversion
+- [ ] How does it relate to different attacks
 
 => We can **explain how model inversion works** and **describe the
 risk profile** in different (practical) contexts
@@ -126,12 +126,12 @@ large to perform a brute-force attack without some sort of bootstrapping.
 
 ## Federated Learning
 
-[ ] what is federated learning
-  [ ] what does it solve
-  [ ] how does it work
-[ ] current threats to federated learning
-  [ ] how is federated learning currently used
-  [ ] have there been any successful attacks
+- [ ] what is federated learning
+  - [ ] what does it solve
+  - [ ] how does it work
+- [ ] current threats to federated learning
+  - [ ] how is federated learning currently used
+  - [ ] have there been any successful attacks
 
 => We can **explain how Federated Learning works**, **describe the
 problems it tries to solve**, and **describe the current threat landscape**
@@ -159,8 +159,8 @@ can attack the
 
 ## Attacking
 
-[ ] Why is model inversion, in particular, a threat to Federated Learning
-[ ] State-of-the-art of model inversion in Federated Learning
+- [ ] Why is model inversion, in particular, a threat to Federated Learning
+- [ ] State-of-the-art of model inversion in Federated Learning
 
 => **Describe the state-of-the-art in Federated Learning Model
 inversion** and **describe the risk profile of each**.
@@ -183,10 +183,10 @@ present new ways to measure and visualize potential data leakage in FL.
 
 ## Defending
 
-[ ] How can some of the aforementioned attacks be prevented or their risks
+- [ ] How can some of the aforementioned attacks be prevented or their risks
 reduced
-[ ] How effective are these defenses
-[ ] What is the trade-off
+- [ ] How effective are these defenses
+- [ ] What is the trade-off
 
 => We can **describe some tactics to mitigate the impact of the
 aforementioned attacks** and **use them in the context of a cost/benefit
@@ -214,9 +214,9 @@ well-fitted augmentation strategy can outperform differential privacy.
 
 # Conclusion
 
-[ ] How 'risky' are the tactics described in this essay
-[ ] Do the defenses have any real impact on the risk of these attacks
-[ ] What would we need to research to improve any of these risks
+- [ ] How 'risky' are the tactics described in this essay
+- [ ] Do the defenses have any real impact on the risk of these attacks
+- [ ] What would we need to research to improve any of these risks
 
 => We can **describe the overall risk of model inversion attacks on
 federated learning** and **build on top of this paper to reduce their risks and
