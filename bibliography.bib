@@ -86,6 +86,50 @@
   file = {/home/zohar/Zotero/storage/6U2M8EJF/Fredrikson et al. - 2015 - Model Inversion Attacks that Exploit Confidence In.pdf}
 }
 
+@inproceedings{geipingInvertingGradientsHow2020,
+  title = {Inverting {{Gradients}} - {{How}} Easy Is It to Break Privacy in Federated Learning?},
+  booktitle = {Advances in {{Neural Information Processing Systems}}},
+  author = {Geiping, Jonas and Bauermeister, Hartmut and Dr{\"o}ge, Hannah and Moeller, Michael},
+  year = {2020},
+  volume = {33},
+  pages = {16937--16947},
+  publisher = {{Curran Associates, Inc.}},
+  urldate = {2023-06-20},
+  abstract = {The idea of federated learning is to collaboratively train a neural network on a server. Each user receives the current weights of the network and in turns sends parameter updates (gradients) based on local data. This protocol has been designed not only to train neural networks data-efficiently, but also to provide privacy benefits for users, as their input data remains on device and only parameter gradients are shared.  But how secure is sharing parameter gradients? Previous attacks have provided a false sense of security, by succeeding only in contrived settings - even for a single image. However, by exploiting a magnitude-invariant loss along with optimization strategies based on adversarial attacks, we show that is is actually possible to faithfully reconstruct images at high resolution from the knowledge of their parameter gradients, and demonstrate that such a break of privacy is possible even for trained deep networks. We analyze the effects of architecture as well as parameters on the difficulty of reconstructing an input image and prove that any input to a fully connected layer can be reconstructed analytically independent of the remaining architecture. Finally we discuss settings encountered in practice and show that even averaging gradients over several iterations or several images does not protect the user's privacy in federated learning applications.},
+  file = {/home/zohar/Zotero/storage/9538S5RJ/Geiping et al. - 2020 - Inverting Gradients - How easy is it to break priv.pdf}
+}
+
+@article{gengImprovedGradientInversion2023,
+  title = {Improved {{Gradient Inversion Attacks}} and {{Defenses}} in {{Federated Learning}}},
+  author = {Geng, Jiahui and Mou, Yongli and Li, Qing and Li, Feifei and Beyan, Oya and Decker, Stefan and Rong, Chunming},
+  year = {2023},
+  journal = {IEEE Transactions on Big Data},
+  pages = {1--13},
+  issn = {2332-7790},
+  doi = {10.1109/TBDATA.2023.3239116},
+  abstract = {Gradient inversion attacks can reconstruct the victim's private data once they have access to the victim's model and gradient. However, existing research is still immature, and many attacks are conducted in ideal conditions. It is unclear how damaging such attacks really are and how they can be effectively defended. In this paper, we first summarize the current relevant researches and their limitations. Then we design a general gradient inversion attack framework, which can attack both FedSGD and FedAVG. We propose approaches to enhance the label inference and image restoration, respectively. Our approach surpasses the SOTA attacks, by successfully attacking the batches from ImageNet while other methods fail to attack. Finally, we suggest several defense strategies without any utility loss from extensive experiments. We are confirmed that our work makes people aware of the privacy issues and can actively avoid the potential risks.},
+  keywords = {Big Data,Cryptography,Federated learning,Federated Learning,Gradient Inversion Attacks,Image reconstruction,Image restoration,Load modeling,Privacy-Preserving Machine Learning,Secure Computing,TV},
+  file = {/home/zohar/Zotero/storage/QPDKCDI8/Geng et al. - 2023 - Improved Gradient Inversion Attacks and Defenses i.pdf;/home/zohar/Zotero/storage/PWDXP5X9/10024757.html}
+}
+
+@article{guCSMIAMembershipInference2022,
+  title = {{{CS-MIA}}: {{Membership}} Inference Attack Based on Prediction Confidence Series in Federated Learning},
+  shorttitle = {{{CS-MIA}}},
+  author = {Gu, Yuhao and Bai, Yuebin and Xu, Shubin},
+  year = {2022},
+  month = jun,
+  journal = {Journal of Information Security and Applications},
+  volume = {67},
+  pages = {103201},
+  issn = {2214-2126},
+  doi = {10.1016/j.jisa.2022.103201},
+  urldate = {2023-06-21},
+  abstract = {Federated learning (FL) is vulnerable to membership inference attacks even it is designed to protect users' data during model training, as model parameters remember the information of training data. However, existing inference attacks against FL perform poorly in multi-participant scenarios. We propose CS-MIA, a novel membership inference based on prediction confidence series, posing a more critical privacy threat to FL. The inspirations of CS-MIA are the different prediction confidence of a model on training and testing data, and multiple versions of target models over rounds during FL. We use a neural network to learn individual features of confidence series on training and testing data for subsequent membership inference. We design inference algorithms for both local and global adversaries in FL. And we also design an active attack for global adversaries to extract more information. Our confidence-series-based membership inference outperforms most state-of-the-art attacks on various datasets in different scenarios, demonstrating the severe privacy leakage in FL.},
+  langid = {english},
+  keywords = {Federated learning,Membership inference,Prediction confidence series,Privacy leakage,White-box attack},
+  file = {/home/zohar/Zotero/storage/TXHRQX4M/Gu et al. - 2022 - CS-MIA Membership inference attack based on predi.pdf;/home/zohar/Zotero/storage/4BZ8UBZ2/S2214212622000801.html}
+}
+
 @article{hatamizadehGradientInversionAttacks2023,
   title = {Do {{Gradient Inversion Attacks Make Federated Learning Unsafe}}?},
   author = {Hatamizadeh, Ali and Yin, Hongxu and Molchanov, Pavlo and Myronenko, Andriy and Li, Wenqi and Dogra, Prerna and Feng, Andrew and Flores, Mona G. and Kautz, Jan and Xu, Daguang and Roth, Holger R.},
@@ -97,6 +141,42 @@
   abstract = {Federated learning (FL) allows the collaborative training of AI models without needing to share raw data. This capability makes it especially interesting for healthcare applications where patient and data privacy is of utmost concern. However, recent works on the inversion of deep neural networks from model gradients raised concerns about the security of FL in preventing the leakage of training data. In this work, we show that these attacks presented in the literature are impractical in FL use-cases where the clients' training involves updating the Batch Normalization (BN) statistics and provide a new baseline attack that works for such scenarios. Furthermore, we present new ways to measure and visualize potential data leakage in FL. Our work is a step towards establishing reproducible methods of measuring data leakage in FL and could help determine the optimal tradeoffs between privacy-preserving techniques, such as differential privacy, and model accuracy based on quantifiable metrics.},
   keywords = {Artificial intelligence,Computational modeling,Data models,Deep Learning,Federated Learning,Gradient Inversion,Image reconstruction,Medical services,Patient Privacy,Security,Servers,Training},
   file = {/home/zohar/Zotero/storage/95455RTE/Hatamizadeh et al. - 2023 - Do Gradient Inversion Attacks Make Federated Learn.pdf;/home/zohar/Zotero/storage/VQG7S3DC/10025466.html}
+}
+
+@misc{huSourceInferenceAttacks2021,
+  title = {Source {{Inference Attacks}} in {{Federated Learning}}},
+  author = {Hu, Hongsheng and Salcic, Zoran and Sun, Lichao and Dobbie, Gillian and Zhang, Xuyun},
+  year = {2021},
+  month = sep,
+  number = {arXiv:2109.05659},
+  eprint = {2109.05659},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2109.05659},
+  urldate = {2023-06-21},
+  abstract = {Federated learning (FL) has emerged as a promising privacy-aware paradigm that allows multiple clients to jointly train a model without sharing their private data. Recently, many studies have shown that FL is vulnerable to membership inference attacks (MIAs) that can distinguish the training members of the given model from the non-members. However, existing MIAs ignore the source of a training member, i.e., the information of which client owns the training member, while it is essential to explore source privacy in FL beyond membership privacy of examples from all clients. The leakage of source information can lead to severe privacy issues. For example, identification of the hospital contributing to the training of an FL model for COVID-19 pandemic can render the owner of a data record from this hospital more prone to discrimination if the hospital is in a high risk region. In this paper, we propose a new inference attack called source inference attack (SIA), which can derive an optimal estimation of the source of a training member. Specifically, we innovatively adopt the Bayesian perspective to demonstrate that an honest-but-curious server can launch an SIA to steal non-trivial source information of the training members without violating the FL protocol. The server leverages the prediction loss of local models on the training members to achieve the attack effectively and non-intrusively. We conduct extensive experiments on one synthetic and five real datasets to evaluate the key factors in an SIA, and the results show the efficacy of the proposed source inference attack.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Cryptography and Security,{Computer Science - Distributed, Parallel, and Cluster Computing},Computer Science - Machine Learning},
+  note = {Comment: This paper has been accepted by ICDM 2021},
+  file = {/home/zohar/Zotero/storage/2YW4LYFH/Hu et al. - 2021 - Source Inference Attacks in Federated Learning.pdf;/home/zohar/Zotero/storage/QCX589AX/2109.html}
+}
+
+@misc{konecnyFederatedLearningStrategies2017,
+  title = {Federated {{Learning}}: {{Strategies}} for {{Improving Communication Efficiency}}},
+  shorttitle = {Federated {{Learning}}},
+  author = {Kone{\v c}n{\'y}, Jakub and McMahan, H. Brendan and Yu, Felix X. and Richt{\'a}rik, Peter and Suresh, Ananda Theertha and Bacon, Dave},
+  year = {2017},
+  month = oct,
+  number = {arXiv:1610.05492},
+  eprint = {1610.05492},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1610.05492},
+  urldate = {2023-06-23},
+  abstract = {Federated Learning is a machine learning setting where the goal is to train a high-quality centralized model while training data remains distributed over a large number of clients each with unreliable and relatively slow network connections. We consider learning algorithms for this setting where on each round, each client independently computes an update to the current model based on its local data, and communicates this update to a central server, where the client-side updates are aggregated to compute a new global model. The typical clients in this setting are mobile phones, and communication efficiency is of the utmost importance. In this paper, we propose two ways to reduce the uplink communication costs: structured updates, where we directly learn an update from a restricted space parametrized using a smaller number of variables, e.g. either low-rank or a random mask; and sketched updates, where we learn a full model update and then compress it using a combination of quantization, random rotations, and subsampling before sending it to the server. Experiments on both convolutional and recurrent networks show that the proposed methods can reduce the communication cost by two orders of magnitude.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning},
+  file = {/home/zohar/Zotero/storage/72ZPH3KE/Konečný et al. - 2017 - Federated Learning Strategies for Improving Commu.pdf;/home/zohar/Zotero/storage/GT87ZT95/1610.html}
 }
 
 @misc{liPrivacyThreatsAnalysis2021,
@@ -126,6 +206,54 @@
   urldate = {2023-06-19},
   langid = {english},
   file = {/home/zohar/Zotero/storage/IEKI6VGS/Li et al. - 2022 - ResSFL A Resistance Transfer Framework for Defend.pdf}
+}
+
+@article{mPrivacyPharmacogeneticsEndtoEnd2014,
+  title = {Privacy in {{Pharmacogenetics}}: {{An End-to-End Case Study}} of {{Personalized Warfarin Dosing}}},
+  shorttitle = {Privacy in {{Pharmacogenetics}}},
+  author = {M, Fredrikson and E, Lantz and S, Jha and S, Lin and D, Page and T, Ristenpart},
+  year = {2014},
+  month = aug,
+  journal = {Proceedings of the ... USENIX Security Symposium. UNIX Security Symposium},
+  volume = {2014},
+  publisher = {{Proc USENIX Secur Symp}},
+  urldate = {2023-06-21},
+  abstract = {We initiate the study of privacy in pharmacogenetics, wherein machine learning models are used to guide medical treatments based on a patient's genotype and background. Performing an in-depth case study on privacy in personalized warfarin dosing, we show that suggested models carry privacy risks, in \ldots},
+  langid = {english},
+  pmid = {27077138}
+}
+
+@inproceedings{nasrComprehensivePrivacyAnalysis2019,
+  title = {Comprehensive {{Privacy Analysis}} of {{Deep Learning}}: {{Passive}} and {{Active White-box Inference Attacks}} against {{Centralized}} and {{Federated Learning}}},
+  shorttitle = {Comprehensive {{Privacy Analysis}} of {{Deep Learning}}},
+  booktitle = {2019 {{IEEE Symposium}} on {{Security}} and {{Privacy}} ({{SP}})},
+  author = {Nasr, Milad and Shokri, Reza and Houmansadr, Amir},
+  year = {2019},
+  month = may,
+  pages = {739--753},
+  issn = {2375-1207},
+  doi = {10.1109/SP.2019.00065},
+  abstract = {Deep neural networks are susceptible to various inference attacks as they remember information about their training data. We design white-box inference attacks to perform a comprehensive privacy analysis of deep learning models. We measure the privacy leakage through parameters of fully trained models as well as the parameter updates of models during training. We design inference algorithms for both centralized and federated learning, with respect to passive and active inference attackers, and assuming different adversary prior knowledge. We evaluate our novel white-box membership inference attacks against deep learning algorithms to trace their training data records. We show that a straightforward extension of the known black-box attacks to the white-box setting (through analyzing the outputs of activation functions) is ineffective. We therefore design new algorithms tailored to the white-box setting by exploiting the privacy vulnerabilities of the stochastic gradient descent algorithm, which is the algorithm used to train deep neural networks. We investigate the reasons why deep learning models may leak information about their training data. We then show that even well-generalized models are significantly susceptible to white-box membership inference attacks, by analyzing state-of-the-art pre-trained and publicly available models for the CIFAR dataset. We also show how adversarial participants, in the federated learning setting, can successfully run active membership inference attacks against other participants, even when the global model achieves high prediction accuracies.},
+  keywords = {Computational modeling,Data models,Deep learning,Deep-Learning,Federated-Learning,Inference algorithms,Inference-Attacks,Membership-Inference,Privacy,Stochastic-Gradient-Descent,Training,Training data},
+  file = {/home/zohar/Zotero/storage/59QHFDF3/Nasr et al. - 2019 - Comprehensive Privacy Analysis of Deep Learning P.pdf;/home/zohar/Zotero/storage/UQVXDUA7/8835245.html}
+}
+
+@misc{nguyenActiveMembershipInference2023,
+  title = {Active {{Membership Inference Attack}} under {{Local Differential Privacy}} in {{Federated Learning}}},
+  author = {Nguyen, Truc and Lai, Phung and Tran, Khang and Phan, NhatHai and Thai, My T.},
+  year = {2023},
+  month = feb,
+  number = {arXiv:2302.12685},
+  eprint = {2302.12685},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2302.12685},
+  urldate = {2023-06-21},
+  abstract = {Federated learning (FL) was originally regarded as a framework for collaborative learning among clients with data privacy protection through a coordinating server. In this paper, we propose a new active membership inference (AMI) attack carried out by a dishonest server in FL. In AMI attacks, the server crafts and embeds malicious parameters into global models to effectively infer whether a target data sample is included in a client's private training data or not. By exploiting the correlation among data features through a non-linear decision boundary, AMI attacks with a certified guarantee of success can achieve severely high success rates under rigorous local differential privacy (LDP) protection; thereby exposing clients' training data to significant privacy risk. Theoretical and experimental results on several benchmark datasets show that adding sufficient privacy-preserving noise to prevent our attack would significantly damage FL's model utility.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Artificial Intelligence,Computer Science - Cryptography and Security,Computer Science - Machine Learning},
+  note = {Comment: To be published at AISTATS 2023},
+  file = {/home/zohar/Zotero/storage/L9CJB4PZ/Nguyen et al. - 2023 - Active Membership Inference Attack under Local Dif.pdf;/home/zohar/Zotero/storage/489PBQNU/2302.html}
 }
 
 @inproceedings{papernotSoKSecurityPrivacy2018,
@@ -158,4 +286,66 @@
   langid = {english},
   keywords = {Defensive augmentation,Differential privacy,Federated learning,Image augmentation,Model inversion attack},
   file = {/home/zohar/Zotero/storage/S7F5GD7L/Shin et al. - 2023 - An empirical analysis of image augmentation agains.pdf}
+}
+
+@inproceedings{shokriPrivacyPreservingDeepLearning2015,
+  title = {Privacy-{{Preserving Deep Learning}}},
+  booktitle = {Proceedings of the 22nd {{ACM SIGSAC Conference}} on {{Computer}} and {{Communications Security}}},
+  author = {Shokri, Reza and Shmatikov, Vitaly},
+  year = {2015},
+  month = oct,
+  pages = {1310--1321},
+  publisher = {{ACM}},
+  address = {{Denver Colorado USA}},
+  doi = {10.1145/2810103.2813687},
+  urldate = {2023-06-23},
+  abstract = {Deep learning based on artificial neural networks is a very popular approach to modeling, classifying, and recognizing complex data such as images, speech, and text. The unprecedented accuracy of deep learning methods has turned them into the foundation of new AI-based services on the Internet. Commercial companies that collect user data on a large scale have been the main beneficiaries of this trend since the success of deep learning techniques is directly proportional to the amount of data available for training.},
+  isbn = {978-1-4503-3832-5},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/K2LVJ2XJ/Shokri and Shmatikov - 2015 - Privacy-Preserving Deep Learning.pdf}
+}
+
+@misc{suriSubjectMembershipInference2022,
+  title = {Subject {{Membership Inference Attacks}} in {{Federated Learning}}},
+  author = {Suri, Anshuman and Kanani, Pallika and Marathe, Virendra J. and Peterson, Daniel W.},
+  year = {2022},
+  month = jun,
+  journal = {arXiv.org},
+  urldate = {2023-06-21},
+  abstract = {Privacy attacks on Machine Learning (ML) models often focus on inferring the existence of particular data points in the training data. However, what the adversary really wants to know is if a particular individual's (subject's) data was included during training. In such scenarios, the adversary is more likely to have access to the distribution of a particular subject than actual records. Furthermore, in settings like cross-silo Federated Learning (FL), a subject's data can be embodied by multiple data records that are spread across multiple organizations. Nearly all of the existing private FL literature is dedicated to studying privacy at two granularities -- item-level (individual data records), and user-level (participating user in the federation), neither of which apply to data subjects in cross-silo FL. This insight motivates us to shift our attention from the privacy of data records to the privacy of data subjects, also known as subject-level privacy. We propose two novel black-box attacks for subject membership inference, of which one assumes access to a model after each training round. Using these attacks, we estimate subject membership inference risk on real-world data for single-party models as well as FL scenarios. We find our attacks to be extremely potent, even without access to exact training records, and using the knowledge of membership for a handful of subjects. To better understand the various factors that may influence subject privacy risk in cross-silo FL settings, we systematically generate several hundred synthetic federation configurations, varying properties of the data, model design and training, and the federation itself. Finally, we investigate the effectiveness of Differential Privacy in mitigating this threat.},
+  howpublished = {https://arxiv.org/abs/2206.03317v3},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/PP3IZS25/Suri et al. - 2022 - Subject Membership Inference Attacks in Federated .pdf}
+}
+
+@misc{tolpeginDataPoisoningAttacks2020,
+  title = {Data {{Poisoning Attacks Against Federated Learning Systems}}},
+  author = {Tolpegin, Vale and Truex, Stacey and Gursoy, Mehmet Emre and Liu, Ling},
+  year = {2020},
+  month = jul,
+  journal = {arXiv.org},
+  urldate = {2023-06-23},
+  abstract = {Federated learning (FL) is an emerging paradigm for distributed training of large-scale deep neural networks in which participants' data remains on their own devices with only model updates being shared with a central server. However, the distributed nature of FL gives rise to new threats caused by potentially malicious participants. In this paper, we study targeted data poisoning attacks against FL systems in which a malicious subset of the participants aim to poison the global model by sending model updates derived from mislabeled data. We first demonstrate that such data poisoning attacks can cause substantial drops in classification accuracy and recall, even with a small percentage of malicious participants. We additionally show that the attacks can be targeted, i.e., they have a large negative impact only on classes that are under attack. We also study attack longevity in early/late round training, the impact of malicious participant availability, and the relationships between the two. Finally, we propose a defense strategy that can help identify malicious participants in FL to circumvent poisoning attacks, and demonstrate its effectiveness.},
+  howpublished = {https://arxiv.org/abs/2007.08432v2},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/AIM3DNKV/Tolpegin et al. - 2020 - Data Poisoning Attacks Against Federated Learning .pdf}
+}
+
+@article{zhengCRFLNovelFederated2022,
+  title = {{{CRFL}}: {{A}} Novel Federated Learning Scheme of Client Reputation Assessment via Local Model Inversion},
+  shorttitle = {{{CRFL}}},
+  author = {Zheng, Jiamin and Huang, Teng and Huang, Jiahui},
+  year = {2022},
+  journal = {International Journal of Intelligent Systems},
+  volume = {37},
+  number = {8},
+  pages = {5457--5471},
+  issn = {1098-111X},
+  doi = {10.1002/int.22914},
+  urldate = {2023-06-20},
+  abstract = {Federated learning (FL) is gradually becoming a key learning paradigm in Privacy-preserving Machine Learning (ML) systems. In FL, a large number of clients cooperate with a central server to learn a shared model without sharing their own data sets. However, since there is a great disparity between the client data sets, standard FL is often hard to tune and suffers from performance degradation due to the inharmony among local models. To this end, in this paper we propose a novel FL scheme, termed client reputation federated learning (CRFL), which dynamically assesses the reputation of the clients participating in FL. Our method leverages techniques from model explanation, and aims at precisely measure each client's impact to the global model. To be specific, we first calculate the saliency-weighted variance on pixelwise relevance scores as the quality factor of a single sample. Then we extract activation function values at the last hidden layer to compute the divergence factor of individual data set. Finally, the server integrates these two factors as an assessment of the client reputation. By leveraging such assessment, CRFL can dynamically adjust the weights of the clients in each aggregation round, thus leading to a significant improvement over the baseline method in terms of model accuracy and convergence rate. Intensive experiments are conducted on the MNIST and CIFAR-10 data sets, and experimental results demonstrate the efficacy of the proposed method.},
+  copyright = {\textcopyright{} 2022 Wiley Periodicals LLC.},
+  langid = {english},
+  keywords = {federated learning,machine learning,model explanation,model inversion,reputation assessment},
+  file = {/home/zohar/Zotero/storage/IF3Z2N66/Zheng et al. - 2022 - CRFL A novel federated learning scheme of client .pdf;/home/zohar/Zotero/storage/HSQQ7IE3/int.html}
 }

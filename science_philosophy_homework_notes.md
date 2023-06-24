@@ -20,33 +20,34 @@ natural sciences_
 
 b. _exclusively knowledge and methods from one or more of the social sciences_
 
-> **Why are security policies enforced rarely followed to their fullest extent?**
-> 
+> **Why are security policies enforced in the workforce rarely followed to their
+> fullest extent?**
+>
 > This only requires interviewing employees on their experience with
 > security policies, and their motivation for not following them. No
-> measurements, in the empirical sense, are required. Neither are logical
-> deductions.
+> measurements, in the empirical sense, are required.
 
 c. _exclusively knowledge and methods from mathematics and/or theoretical
 computer science (algorithmics, a.s.f.)_
 
-> **What is the theoretical upper bound for...?**
+> **How can AES and other modular exponentiation-based encryption algorithms be
+> effectively attacked by quantum computing algorithms.**
 >
-> Explanation...
+> Investigating this exclusively requires knowledge about quantum algorithms and
+> classical encryption methods. Here, we use effectively in the sense that it
+> has a large reduction in computational complexity over classical methods.
 
 # Question 2
 
 a. _Do you think that the term ‘social engineering’ as used by hackers is correct
 in that these techniques can rightly be seen as a form of engineering?_
 
-> **Yes, or, at least, mostly**.
->
-> Social engineering could be described as the application of sociological
+> Yes. Social engineering could be described as the application of sociological
 > principles to exploit human behavior. As we are talking about an application to
 > achieve a goal, it is reasonable to assume social engineering consists at least
 > mostly of claims that are normative in nature. One might argue that because
 > social engineering rests on sociological principles and claims, it cannot be
-> ruled out that it is a science. The instructions that social gineering proposes,
+> ruled out that it is a science. The instructions that social engineering produces,
 > however, are _based_ on sociology. So, while it _uses_ descriptive claims, it
 > does not _make_ any descriptive claims. The field _uses_ science, but is not a
 > science. Furthermore, as long as we assume that the normative claims made in
@@ -60,7 +61,14 @@ engineering’ IS rightly chosen, in that (i) to organize society, and (ii) to
 modify and adapt the organization of society are basically engineering
 problems?_
 
-> In the 
+> In the same sense as before, these problems be called engineering problems,
+> given that they are still based on scientific research. To organize and to
+> modify are action-oriented tasks and they require insight into what might be
+> potential good actions (hence the basis in empirical evidence, i.e. science).
+> More certainty than potentially good actions, however, cannot be guaranteed,
+> making them more akin to recommendations than a truth or falsity. They might
+> not be considered 'classical' engineering problems, but I see not good reason
+> not the consider them as such.
 
 # Question 3
 
