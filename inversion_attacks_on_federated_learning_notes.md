@@ -1,29 +1,16 @@
 ---
 title:  Inference Attacks on Federated Learning - A Survey
-author: Hoar Cohabit
+author: Zohar Cochav
+
 bibliography: 
   - bibliography.bib
 documentclass: IEEEtran
 classoption:
   - compsoc
-abstract: This is the abstract...
+
+abstract: Federated Learning has brought improvements to the current state of machine learning by providing better safety with regard to user data and privacy. Gradient inversion and other inference attacks threaten on of the fundamental principles on which this method was founded.  One of the ways in which this type of learning avoids hints about releasing training data is by providing a layer of obscurity between the output and the relation to the training data. Still, these models have been shown to be able to be inverted.  The impact of this on privacy and safety depends on the extent to which this can be related to the individual training scheme. We provide an overview of inversion attacks that can aid in the establishment of risk assessments and (state-of-the-art something about why collecting is a good idea) to determine whether these kinds of attacks pose a real threat in the status-quo.
 ---
 
-  
-> Federated Learning has brought improvements to the current state of machine
-> learning by providing better safety with regard to user data and privacy. Gradient
-> inversion and other inference attacks threaten on of the fundamental
-> principles on which this method was founded.
->
-> One of the ways in which this type of learning avoids hints about releasing
-> training data is by providing a layer of obscurity between the output and
-> the relation to the training data. Still, these models have been shown to be
-> able to be inverted. The impact of this on privacy and safety depends on the
-> extent to which this can be related to the individual training scheme. We
-> provide an overview of inversion attacks that can aid in the establishment
-> of risk assessments and (state-of-the-art something about why collecting is
-> a good idea) to determine whether these kinds of attacks pose a real threat
-> in the status-quo.
 
 # Introduction
 
@@ -487,7 +474,9 @@ assume the ability to intercept and read the communications. Were this to be
 encrypted, such attacks could possibly be mitigated
 [@liPrivacyThreatsAnalysis2021].
 
-- _Increased Resilience Against Exisiting Privacy Measures_: 
+- _Increased Resilience Against Existing Privacy Measures_: Some of the
+  aforementioned papers have shown improvements concerning the evasion of
+  privacy-preserving measures.
 
 ## Future Work
 
