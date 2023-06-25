@@ -15,6 +15,32 @@
   file = {/home/zohar/Zotero/storage/DZI5SDPU/Abad et al. - 2022 - On the Security & Privacy in Federated Learning.pdf}
 }
 
+@incollection{andreuxSiloedFederatedLearning2020,
+  title = {Siloed {{Federated Learning}} for {{Multi-centric Histopathology Datasets}}},
+  booktitle = {Domain {{Adaptation}} and {{Representation Transfer}}, and {{Distributed}} and {{Collaborative Learning}}},
+  author = {Andreux, Mathieu and Du Terrail, Jean Ogier and Beguier, Constance and Tramel, Eric W.},
+  editor = {Albarqouni, Shadi and Bakas, Spyridon and Kamnitsas, Konstantinos and Cardoso, M. Jorge and Landman, Bennett and Li, Wenqi and Milletari, Fausto and Rieke, Nicola and Roth, Holger and Xu, Daguang and Xu, Ziyue},
+  year = {2020},
+  volume = {12444},
+  pages = {129--139},
+  publisher = {{Springer International Publishing}},
+  address = {{Cham}},
+  doi = {10.1007/978-3-030-60548-3_13},
+  urldate = {2023-06-24},
+  abstract = {While federated learning is a promising approach for training deep learning models over distributed sensitive datasets, it presents new challenges for machine learning, especially when applied in the medical domain where multi-centric data heterogeneity is common. Building on previous domain adaptation works, this paper proposes a novel federated learning approach for deep learning architectures via the introduction of local-statistic batch normalization (BN) layers, resulting in collaboratively-trained, yet center-specific models. This strategy improves robustness to data heterogeneity while also reducing the potential for information leaks by not sharing the center-specific layer activation statistics. We benchmark the proposed method on the classification of tumorous histopathology image patches extracted from the Camelyon16 and Camelyon17 datasets. We show that our approach compares favorably to previous state-of-the-art methods, especially for transfer learning across datasets.},
+  isbn = {978-3-030-60547-6 978-3-030-60548-3},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/4N7IGC3A/Andreux et al. - 2020 - Siloed Federated Learning for Multi-centric Histop.pdf}
+}
+
+@article{annavaramGroupKnowledgeTransfer,
+  title = {Group {{Knowledge Transfer}}: {{Federated Learning}} of {{Large CNNs}} at the {{Edge}}},
+  author = {Annavaram, Chaoyang He Murali and Avestimehr, Salman},
+  abstract = {Scaling up the convolutional neural network (CNN) size (e.g., width, depth, etc.) is known to effectively improve model accuracy. However, the large model size impedes training on resource-constrained edge devices. For instance, federated learning (FL) may place undue burden on the compute capability of edge nodes, even though there is a strong practical need for FL due to its privacy and confidentiality properties. To address the resource-constrained reality of edge devices, we reformulate FL as a group knowledge transfer training algorithm, called FedGKT. FedGKT designs a variant of the alternating minimization approach to train small CNNs on edge nodes and periodically transfer their knowledge by knowledge distillation to a large server-side CNN. FedGKT consolidates several advantages into a single framework: reduced demand for edge computation, lower communication bandwidth for large CNNs, and asynchronous training, all while maintaining model accuracy comparable to FedAvg. We train CNNs designed based on ResNet-56 and ResNet-110 using three distinct datasets (CIFAR-10, CIFAR-100, and CINIC-10) and their non-I.I.D. variants. Our results show that FedGKT can obtain comparable or even slightly higher accuracy than FedAvg. More importantly, FedGKT makes edge training affordable. Compared to the edge training using FedAvg, FedGKT demands 9 to 17 times less computational power (FLOPs) on edge devices and requires 54 to 105 times fewer parameters in the edge CNN. Our source code is released at FedML (https://fedml.ai).},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/GWJWHLBM/Annavaram and Avestimehr - Group Knowledge Transfer Federated Learning of La.pdf}
+}
+
 @misc{carliniExtractingTrainingData2021,
   title = {Extracting {{Training Data}} from {{Large Language Models}}},
   author = {Carlini, Nicholas and Tramer, Florian and Wallace, Eric and Jagielski, Matthew and {Herbert-Voss}, Ariel and Lee, Katherine and Roberts, Adam and Brown, Tom and Song, Dawn and Erlingsson, Ulfar and Oprea, Alina and Raffel, Colin},
@@ -66,6 +92,21 @@
   keywords = {Computer Science - Cryptography and Security},
   note = {Comment: To appear in ACM Asia Conference on Computer and Communications Security (ASIACCS) 2017. 13 pages, 17 figures},
   file = {/home/zohar/Zotero/storage/XM99BKK5/Compagno et al. - 2017 - Don't Skype & Type! Acoustic Eavesdropping in Voic.pdf}
+}
+
+@article{dworkAlgorithmicFoundationsDifferential2013,
+  title = {The {{Algorithmic Foundations}} of {{Differential Privacy}}},
+  author = {Dwork, Cynthia and Roth, Aaron},
+  year = {2013},
+  journal = {Foundations and Trends\textregistered{} in Theoretical Computer Science},
+  volume = {9},
+  number = {3-4},
+  pages = {211--407},
+  issn = {1551-305X, 1551-3068},
+  doi = {10.1561/0400000042},
+  urldate = {2023-06-24},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/JA7JWRPQ/Dwork and Roth - 2013 - The Algorithmic Foundations of Differential Privac.pdf}
 }
 
 @inproceedings{fredriksonModelInversionAttacks2015,
@@ -161,6 +202,40 @@
   file = {/home/zohar/Zotero/storage/2YW4LYFH/Hu et al. - 2021 - Source Inference Attacks in Federated Learning.pdf;/home/zohar/Zotero/storage/QCX589AX/2109.html}
 }
 
+@misc{ioffeBatchNormalizationAccelerating2015,
+  title = {Batch {{Normalization}}: {{Accelerating Deep Network Training}} by {{Reducing Internal Covariate Shift}}},
+  shorttitle = {Batch {{Normalization}}},
+  author = {Ioffe, Sergey and Szegedy, Christian},
+  year = {2015},
+  month = mar,
+  number = {arXiv:1502.03167},
+  eprint = {1502.03167},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.1502.03167},
+  urldate = {2023-06-24},
+  abstract = {Training Deep Neural Networks is complicated by the fact that the distribution of each layer's inputs changes during training, as the parameters of the previous layers change. This slows down the training by requiring lower learning rates and careful parameter initialization, and makes it notoriously hard to train models with saturating nonlinearities. We refer to this phenomenon as internal covariate shift, and address the problem by normalizing layer inputs. Our method draws its strength from making normalization a part of the model architecture and performing the normalization for each training mini-batch. Batch Normalization allows us to use much higher learning rates and be less careful about initialization. It also acts as a regularizer, in some cases eliminating the need for Dropout. Applied to a state-of-the-art image classification model, Batch Normalization achieves the same accuracy with 14 times fewer training steps, and beats the original model by a significant margin. Using an ensemble of batch-normalized networks, we improve upon the best published result on ImageNet classification: reaching 4.9\% top-5 validation error (and 4.8\% test error), exceeding the accuracy of human raters.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning},
+  file = {/home/zohar/Zotero/storage/R9DU6A4Z/Ioffe and Szegedy - 2015 - Batch Normalization Accelerating Deep Network Tra.pdf;/home/zohar/Zotero/storage/4QLUF6FJ/1502.html}
+}
+
+@article{kaissisEndtoendPrivacyPreserving2021,
+  title = {End-to-End Privacy Preserving Deep Learning on Multi-Institutional Medical Imaging},
+  author = {Kaissis, Georgios and Ziller, Alexander and {Passerat-Palmbach}, Jonathan and Ryffel, Th{\'e}o and Usynin, Dmitrii and Trask, Andrew and Lima, Ion{\'e}sio and Mancuso, Jason and Jungmann, Friederike and Steinborn, Marc-Matthias and Saleh, Andreas and Makowski, Marcus and Rueckert, Daniel and Braren, Rickmer},
+  year = {2021},
+  month = may,
+  journal = {Nature Machine Intelligence},
+  volume = {3},
+  number = {6},
+  pages = {473--484},
+  issn = {2522-5839},
+  doi = {10.1038/s42256-021-00337-8},
+  urldate = {2023-06-24},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/4YURE4LW/Kaissis et al. - 2021 - End-to-end privacy preserving deep learning on mul.pdf}
+}
+
 @misc{konecnyFederatedLearningStrategies2017,
   title = {Federated {{Learning}}: {{Strategies}} for {{Improving Communication Efficiency}}},
   shorttitle = {Federated {{Learning}}},
@@ -177,6 +252,25 @@
   archiveprefix = {arxiv},
   keywords = {Computer Science - Machine Learning},
   file = {/home/zohar/Zotero/storage/72ZPH3KE/Konečný et al. - 2017 - Federated Learning Strategies for Improving Commu.pdf;/home/zohar/Zotero/storage/GT87ZT95/1610.html}
+}
+
+@misc{liFedBNFederatedLearning2021,
+  title = {{{FedBN}}: {{Federated Learning}} on {{Non-IID Features}} via {{Local Batch Normalization}}},
+  shorttitle = {{{FedBN}}},
+  author = {Li, Xiaoxiao and Jiang, Meirui and Zhang, Xiaofei and Kamp, Michael and Dou, Qi},
+  year = {2021},
+  month = may,
+  number = {arXiv:2102.07623},
+  eprint = {2102.07623},
+  primaryclass = {cs},
+  publisher = {{arXiv}},
+  doi = {10.48550/arXiv.2102.07623},
+  urldate = {2023-06-24},
+  abstract = {The emerging paradigm of federated learning (FL) strives to enable collaborative training of deep models on the network edge without centrally aggregating raw data and hence improving data privacy. In most cases, the assumption of independent and identically distributed samples across local clients does not hold for federated learning setups. Under this setting, neural network training performance may vary significantly according to the data distribution and even hurt training convergence. Most of the previous work has focused on a difference in the distribution of labels or client shifts. Unlike those settings, we address an important problem of FL, e.g., different scanners/sensors in medical imaging, different scenery distribution in autonomous driving (highway vs. city), where local clients store examples with different distributions compared to other clients, which we denote as feature shift non-iid. In this work, we propose an effective method that uses local batch normalization to alleviate the feature shift before averaging models. The resulting scheme, called FedBN, outperforms both classical FedAvg, as well as the state-of-the-art for non-iid data (FedProx) on our extensive experiments. These empirical results are supported by a convergence analysis that shows in a simplified setting that FedBN has a faster convergence rate than FedAvg. Code is available at https://github.com/med-air/FedBN.},
+  archiveprefix = {arxiv},
+  keywords = {Computer Science - Machine Learning},
+  note = {Comment: Accepted at ICLR 2021},
+  file = {/home/zohar/Zotero/storage/J8NI8KAY/Li et al. - 2021 - FedBN Federated Learning on Non-IID Features via .pdf;/home/zohar/Zotero/storage/TCJ8W753/2102.html}
 }
 
 @misc{liPrivacyThreatsAnalysis2021,
@@ -303,6 +397,24 @@
   isbn = {978-1-4503-3832-5},
   langid = {english},
   file = {/home/zohar/Zotero/storage/K2LVJ2XJ/Shokri and Shmatikov - 2015 - Privacy-Preserving Deep Learning.pdf}
+}
+
+@article{shortenSurveyImageData2019,
+  title = {A Survey on {{Image Data Augmentation}} for {{Deep Learning}}},
+  author = {Shorten, Connor and Khoshgoftaar, Taghi M.},
+  year = {2019},
+  month = dec,
+  journal = {Journal of Big Data},
+  volume = {6},
+  number = {1},
+  pages = {60},
+  issn = {2196-1115},
+  doi = {10.1186/s40537-019-0197-0},
+  urldate = {2023-06-25},
+  abstract = {Deep convolutional neural networks have performed remarkably well on many Computer Vision tasks. However, these networks are heavily reliant on big data to avoid overfitting. Overfitting refers to the phenomenon when a network learns a function with very high variance such as to perfectly model the training data. Unfortunately, many application domains do not have access to big data, such as medical image analysis. This survey focuses on Data Augmentation, a data-space solution to the problem of limited data. Data Augmentation encompasses a suite of techniques that enhance the size and quality of training datasets such that better Deep Learning models can be built using them. The image augmentation algorithms discussed in this survey include geometric transformations, color space augmentations, kernel filters, mixing images, random erasing, feature space augmentation, adversarial training, generative adversarial networks, neural style transfer, and meta-learning. The application of augmentation methods based on GANs are heavily covered in this survey. In addition to augmentation techniques, this paper will briefly discuss other characteristics of Data Augmentation such as test-time augmentation, resolution impact, final dataset size, and curriculum learning. This survey will present existing methods for Data Augmentation, promising developments, and meta-level decisions for implementing Data Augmentation. Readers will understand how Data Augmentation can improve the performance of their models and expand limited datasets to take advantage of the capabilities of big data.},
+  langid = {english},
+  note = {[TLDR] This survey will present existing methods for Data Augmentation, promising developments, and meta-level decisions for implementing DataAugmentation, a data-space solution to the problem of limited data.},
+  file = {/home/zohar/Zotero/storage/TV98NE9Q/Shorten and Khoshgoftaar - 2019 - A survey on Image Data Augmentation for Deep Learn.pdf}
 }
 
 @misc{suriSubjectMembershipInference2022,
