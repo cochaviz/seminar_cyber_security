@@ -127,6 +127,23 @@
   file = {/home/zohar/Zotero/storage/6U2M8EJF/Fredrikson et al. - 2015 - Model Inversion Attacks that Exploit Confidence In.pdf}
 }
 
+@inproceedings{ganjuPropertyInferenceAttacks2018,
+  title = {Property {{Inference Attacks}} on {{Fully Connected Neural Networks}} Using {{Permutation Invariant Representations}}},
+  booktitle = {Proceedings of the 2018 {{ACM SIGSAC Conference}} on {{Computer}} and {{Communications Security}}},
+  author = {Ganju, Karan and Wang, Qi and Yang, Wei and Gunter, Carl A. and Borisov, Nikita},
+  year = {2018},
+  month = oct,
+  pages = {619--633},
+  publisher = {{ACM}},
+  address = {{Toronto Canada}},
+  doi = {10.1145/3243734.3243834},
+  urldate = {2023-06-25},
+  abstract = {With the growing adoption of machine learning, sharing of learned models is becoming popular. However, in addition to the prediction properties the model producer aims to share, there is also a risk that the model consumer can infer other properties of the training data the model producer did not intend to share. In this paper, we focus on the inference of global properties of the training data, such as the environment in which the data was produced, or the fraction of the data that comes from a certain class, as applied to white-box Fully Connected Neural Networks (FCNNs).},
+  isbn = {978-1-4503-5693-0},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/92U2EJ42/Ganju et al. - 2018 - Property Inference Attacks on Fully Connected Neur.pdf}
+}
+
 @inproceedings{geipingInvertingGradientsHow2020,
   title = {Inverting {{Gradients}} - {{How}} Easy Is It to Break Privacy in Federated Learning?},
   booktitle = {Advances in {{Neural Information Processing Systems}}},
@@ -254,6 +271,39 @@
   file = {/home/zohar/Zotero/storage/72ZPH3KE/Konečný et al. - 2017 - Federated Learning Strategies for Improving Commu.pdf;/home/zohar/Zotero/storage/GT87ZT95/1610.html}
 }
 
+@article{kononenkoMachineLearningMedical2001,
+  title = {Machine Learning for Medical Diagnosis: History, State of the Art and Perspective},
+  shorttitle = {Machine Learning for Medical Diagnosis},
+  author = {Kononenko, Igor},
+  year = {2001},
+  month = aug,
+  journal = {Artificial Intelligence in Medicine},
+  volume = {23},
+  number = {1},
+  pages = {89--109},
+  issn = {0933-3657},
+  doi = {10.1016/S0933-3657(01)00077-X},
+  urldate = {2023-06-25},
+  abstract = {The paper provides an overview of the development of intelligent data analysis in medicine from a machine learning perspective: a historical view, a state-of-the-art view, and a view on some future trends in this subfield of applied artificial intelligence. The paper is not intended to provide a comprehensive overview but rather describes some subareas and directions which from my personal point of view seem to be important for applying machine learning in medical diagnosis. In the historical overview, I emphasize the naive Bayesian classifier, neural networks and decision trees. I present a comparison of some state-of-the-art systems, representatives from each branch of machine learning, when applied to several medical diagnostic tasks. The future trends are illustrated by two case studies. The first describes a recently developed method for dealing with reliability of decisions of classifiers, which seems to be promising for intelligent data analysis in medicine. The second describes an approach to using machine learning in order to verify some unexplained phenomena from complementary medicine, which is not (yet) approved by the orthodox medical community but could in the future play an important role in overall medical diagnosis and treatment.},
+  langid = {english},
+  keywords = {Kirlian camera,Machine learning,Medical diagnosis,Reliability of prediction},
+  file = {/home/zohar/Zotero/storage/P9995QH7/Kononenko - 2001 - Machine learning for medical diagnosis history, s.pdf;/home/zohar/Zotero/storage/LAVKHRGM/S093336570100077X.html}
+}
+
+@article{leePrivacyPreservingMachineLearning2022,
+  title = {Privacy-{{Preserving Machine Learning With Fully Homomorphic Encryption}} for {{Deep Neural Network}}},
+  author = {Lee, Joon-Woo and Kang, Hyungchul and Lee, Yongwoo and Choi, Woosuk and Eom, Jieun and Deryabin, Maxim and Lee, Eunsang and Lee, Junghyun and Yoo, Donghoon and Kim, Young-Sik and No, Jong-Seon},
+  year = {2022},
+  journal = {IEEE Access},
+  volume = {10},
+  pages = {30039--30054},
+  issn = {2169-3536},
+  doi = {10.1109/ACCESS.2022.3159694},
+  abstract = {Fully homomorphic encryption (FHE) is a prospective tool for privacy-preserving machine learning (PPML). Several PPML models have been proposed based on various FHE schemes and approaches. Although FHE schemes are suitable as tools for implementing PPML models, previous PPML models based on FHE, such as CryptoNet, SEALion, and CryptoDL, are limited to simple and nonstandard types of machine learning models; they have not proven to be efficient and accurate with more practical and advanced datasets. Previous PPML schemes replaced non-arithmetic activation functions with simple arithmetic functions instead of adopting approximation methods and did not use bootstrapping, which enables continuous homomorphic evaluations. Thus, they could neither use standard activation functions nor employ large numbers of layers. In this work, we first implement the standard ResNet-20 model with the RNS-CKKS FHE with bootstrapping and verify the implemented model with the CIFAR-10 dataset and plaintext model parameters. Instead of replacing the non-arithmetic functions with simple arithmetic functions, we use state-of-the-art approximation methods to evaluate these non-arithmetic functions, such as ReLU and Softmax, with sufficient precision. Further, for the first time, we use the bootstrapping technique of the RNS-CKKS scheme in the proposed model, which enables us to evaluate an arbitrary deep learning model on encrypted data. We numerically verify that the proposed model with the CIFAR-10 dataset shows 98.43\% identical results to the original ResNet-20 model with non-encrypted data. The classification accuracy of the proposed model is 92.43\%{$\pm$}2.65\%, which is quite close to that of the original ResNet-20 CNN model (91.89\%). It takes approximately 3 h for inference on a dual Intel Xeon Platinum 8280 CPU (112 cores) with 172 GB of memory. We believe that this opens the possibility of applying FHE to an advanced deep PPML model.},
+  keywords = {Computational modeling,Cryptography,Data models,Deep learning,Homomorphic encryption,Numerical models,Privacy-preserving machine learning,ResNet-20,RNS-CKKS FHE scheme,SEAL library,software implementation,Standards},
+  file = {/home/zohar/Zotero/storage/D8PDKF3W/Lee et al. - 2022 - Privacy-Preserving Machine Learning With Fully Hom.pdf;/home/zohar/Zotero/storage/H8W2QFID/9734024.html}
+}
+
 @misc{liFedBNFederatedLearning2021,
   title = {{{FedBN}}: {{Federated Learning}} on {{Non-IID Features}} via {{Local Batch Normalization}}},
   shorttitle = {{{FedBN}}},
@@ -300,6 +350,31 @@
   urldate = {2023-06-19},
   langid = {english},
   file = {/home/zohar/Zotero/storage/IEKI6VGS/Li et al. - 2022 - ResSFL A Resistance Transfer Framework for Defend.pdf}
+}
+
+@misc{liuSummaryChatGPTGPT42023,
+  title = {Summary of {{ChatGPT}}/{{GPT-4 Research}} and {{Perspective Towards}} the {{Future}} of {{Large Language Models}}},
+  author = {Liu, Yiheng and Han, Tianle and Ma, Siyuan and Zhang, Jiayue and Yang, Yuanyuan and Tian, Jiaming and He, Hao and Li, Antong and He, Mengshen and Liu, Zhengliang and Wu, Zihao and Zhu, Dajiang and Li, Xiang and Qiang, Ning and Shen, Dingang and Liu, Tianming and Ge, Bao},
+  year = {2023},
+  month = apr,
+  journal = {arXiv.org},
+  urldate = {2023-06-25},
+  abstract = {This paper presents a comprehensive survey of ChatGPT and GPT-4, state-of-the-art large language models (LLM) from the GPT series, and their prospective applications across diverse domains. Indeed, key innovations such as large-scale pre-training that captures knowledge across the entire world wide web, instruction fine-tuning and Reinforcement Learning from Human Feedback (RLHF) have played significant roles in enhancing LLMs' adaptability and performance. We performed an in-depth analysis of 194 relevant papers on arXiv, encompassing trend analysis, word cloud representation, and distribution analysis across various application domains. The findings reveal a significant and increasing interest in ChatGPT/GPT-4 research, predominantly centered on direct natural language processing applications, while also demonstrating considerable potential in areas ranging from education and history to mathematics, medicine, and physics. This study endeavors to furnish insights into ChatGPT's capabilities, potential implications, ethical concerns, and offer direction for future advancements in this field.},
+  howpublished = {https://arxiv.org/abs/2304.01852v3},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/EZMEPI8A/Liu et al. - 2023 - Summary of ChatGPTGPT-4 Research and Perspective .pdf}
+}
+
+@misc{mcmahanFederatedLearningCollaborative2017,
+  title = {Federated {{Learning}}: {{Collaborative Machine Learning}} without {{Centralized Training Data}}},
+  shorttitle = {Federated {{Learning}}},
+  author = {McMahan, Brendan and Ramage, Daniel},
+  year = {2017},
+  month = apr,
+  urldate = {2023-06-25},
+  howpublished = {https://ai.googleblog.com/2017/04/federated-learning-collaborative.html},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/T688QWBI/federated-learning-collaborative.html}
 }
 
 @article{mPrivacyPharmacogeneticsEndtoEnd2014,
@@ -350,6 +425,20 @@
   file = {/home/zohar/Zotero/storage/L9CJB4PZ/Nguyen et al. - 2023 - Active Membership Inference Attack under Local Dif.pdf;/home/zohar/Zotero/storage/489PBQNU/2302.html}
 }
 
+@techreport{opreaAdversarialMachineLearning2023,
+  title = {Adversarial {{Machine Learning}}: {{A Taxonomy}} and {{Terminology}} of {{Attacks}} and {{Mitigations}} ({{Draft}})},
+  shorttitle = {Adversarial {{Machine Learning}}},
+  author = {Oprea, Alina and Vassilev, Apostol},
+  year = {2023},
+  month = mar,
+  number = {NIST AI 100-2e2023 ipd},
+  institution = {{National Institute of Standards and Technology}},
+  urldate = {2023-06-25},
+  abstract = {This NIST AI report develops a taxonomy of concepts and defines terminology in the field of adversarial~machine learning (AML). The taxonomy is built on survey of the AML literature and is arranged in a~conceptual hierarchy that includes key types of ML methods and lifecycle stage of attack, attacker goals and objectives, and attacker capabilities and knowledge of the learning process. The report also provides~corresponding methods for mitigating and managing the consequences of attacks and points out relevant~open challenges to take into account in the lifecycle of AI systems. The terminology used in the report is~consistent with the literature on AML and is complemented by a glossary that defines key terms associated~with the security of AI systems and is intended to assist non-expert readers. Taken together, the taxonomy~and terminology are meant to inform other standards and future practice guides for assessing and managing~the security of AI systems, by establishing a common...},
+  langid = {english},
+  file = {/home/zohar/Zotero/storage/88L2GY3C/draft.html}
+}
+
 @inproceedings{papernotSoKSecurityPrivacy2018,
   title = {{{SoK}}: {{Security}} and {{Privacy}} in {{Machine Learning}}},
   shorttitle = {{{SoK}}},
@@ -362,6 +451,23 @@
   abstract = {Advances in machine learning (ML) in recent years have enabled a dizzying array of applications such as data analytics, autonomous systems, and security diagnostics. ML is now pervasive-new systems and models are being deployed in every domain imaginable, leading to widespread deployment of software based inference and decision making. There is growing recognition that ML exposes new vulnerabilities in software systems, yet the technical community's understanding of the nature and extent of these vulnerabilities remains limited. We systematize findings on ML security and privacy, focusing on attacks identified on these systems and defenses crafted to date.We articulate a comprehensive threat model for ML, and categorize attacks and defenses within an adversarial framework. Key insights resulting from works both in the ML and security communities are identified and the effectiveness of approaches are related to structural elements of ML algorithms and the data used to train them. In particular, it is apparent that constructing a theoretical understanding of the sensitivity of modern ML algorithms to the data they analyze, \`a la PAC theory, will foster a science of security and privacy in ML.},
   keywords = {Analytical models,Computational modeling,Data models,machine learning,Machine learning,privacy,Privacy,security,Security,Training},
   file = {/home/zohar/Zotero/storage/4GAWV99S/Papernot et al. - 2018 - SoK Security and Privacy in Machine Learning.pdf;/home/zohar/Zotero/storage/RXH42E4I/stamp.html}
+}
+
+@article{riekeFutureDigitalHealth2020,
+  title = {The Future of Digital Health with Federated Learning},
+  author = {Rieke, Nicola and Hancox, Jonny and Li, Wenqi and Milletar{\`i}, Fausto and Roth, Holger R. and Albarqouni, Shadi and Bakas, Spyridon and Galtier, Mathieu N. and Landman, Bennett A. and {Maier-Hein}, Klaus and Ourselin, S{\'e}bastien and Sheller, Micah and Summers, Ronald M. and Trask, Andrew and Xu, Daguang and Baust, Maximilian and Cardoso, M. Jorge},
+  year = {2020},
+  month = sep,
+  journal = {NPJ Digital Medicine},
+  volume = {3},
+  pages = {119},
+  issn = {2398-6352},
+  doi = {10.1038/s41746-020-00323-1},
+  urldate = {2023-06-25},
+  abstract = {Data-driven machine learning (ML) has emerged as a promising approach for building accurate and robust statistical models from medical data, which is collected in huge volumes by modern healthcare systems. Existing medical data is not fully exploited by ML primarily because it sits in data silos and privacy concerns restrict access to this data. However, without access to sufficient data, ML will be prevented from reaching its full potential and, ultimately, from making the transition from research to clinical practice. This paper considers key factors contributing to this issue, explores how federated learning (FL) may provide a solution for the future of digital health and highlights the challenges and considerations that need to be addressed.},
+  pmcid = {PMC7490367},
+  pmid = {33015372},
+  file = {/home/zohar/Zotero/storage/9X66HI2V/Rieke et al. - 2020 - The future of digital health with federated learni.pdf}
 }
 
 @article{shinEmpiricalAnalysisImage2023,
