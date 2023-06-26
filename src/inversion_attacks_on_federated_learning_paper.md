@@ -8,51 +8,37 @@ documentclass: IEEEtran
 classoption:
   - compsoc
 
-abstract: Federated Learning has brought improvements to the current state of machine learning by providing better safety with regard to user data and privacy. Gradient inversion and other inference attacks threaten on of the fundamental principles on which this method was founded.  One of the ways in which this type of learning avoids hints about releasing training data is by providing a layer of obscurity between the output and the relation to the training data. Still, these models have been shown to be able to be inverted.  The impact of this on privacy and safety depends on the extent to which this can be related to the individual training scheme. We provide an overview of inversion attacks that can aid in the establishment of risk assessments and (state-of-the-art something about why collecting is a good idea) to determine whether these kinds of attacks pose a real threat in the status-quo.
+abstract: Federated Learning (FL) is a privacy-preserving approach to distributed machine learning, but it is vulnerable to inference attacks. Inference attacks aim to extract information about regarding model or data used in FL, directly threatening one of its core principles. This essay provides an overview of state-of-the-art inference attacks in FL and their implications for data privacy. It introduces the basics of FL, different types of inference attacks (model inversion, membership inference, property inference), and provides an overview of recent research on gradient inversion and membership inference attacks. We emphasize the need for robust defenses to safeguard sensitive information in FL systems, along with the importance of future research in addressing these increasingly realistic threats.
 ---
-
 
 # Introduction
 
-> - [ ] why inversion attacks on federated learning are important
-> - [ ] why inversion attacks in particular
-> - [ ] why federated learning in particular
->   - [ ] what does federated learning try to solve
->   - [ ] why should we care about its safety
->
-> $\Rightarrow$ We know why we should be concerned with model inversion on
-> federated learning
+Machine learning models have demonstrated remarkable capabilities in
+interpreting and deriving insights from data, leading to significant
+advancements in fields such as medical diagnostics
+[@kononenkoMachineLearningMedical2001] and natural language processing
+[@liuSummaryChatGPTGPT42023]. However, these applications often involve handling
+privacy-sensitive data [@riekeFutureDigitalHealth2020], which can be inferred
+from trained models [@fredriksonModelInversionAttacks2015], raising concerns
+about data privacy and security. Federated Learning is a privacy-preserving
+approach to distributed machine learning that aims to address these concerns
+[@mcmahanFederatedLearningCollaborative2017] but is not immune to potential
+exploits [@abadSecurityPrivacyFederated2022].  Inference Attacks directly
+threaten this privacy-preserving feature by attempting to extract information
+about the model and the data it was trained on
+[@geipingInvertingGradientsHow2020].
 
-Machine learning models have shown an incredible capacity to interpret data and
-deduct from it, enabling numerous breakthroughs by improving diagnostic
-capabilities in the medical field [@], natural language processing [@], etc.
-All these applications, however, require privacy-sensitive data, which has been
-shown to be inferrable from trained models
-[@fredriksonModelInversionAttacks2015]. Federated Learning attempts to address
-this and other privacy-related security issues but is of course not infallible
-to exploits [@abadSecurityPrivacyFederated2022]. Federated Learning is
-relatively new to the space of machine learning (being introduced in 2015) [@],
-and is already being used in large enterprises and essential infrastructure. For
-this reason, cyber attacks such as Model Inversion could pose a significant,
-unknown, threat to users (indirectly) using Federated Learning.
-
-In this essay, I provide an overview of current Model Inversion threats and
-defenses to Federated Learning. This overview should serve as an introduction to
-Federated Learning and Model Inversion, and assist in the construction of risk
-analyses in the context of Federated Learning. First, I will provide a general
-overview of Model Inversion methods and techniques, and introduce Federated
-Learning and some of the current threats. This is followed by an overview of
-different, recent, Model Inversion attacks on Federated Learning and their
-respective defenses. Finally, we will discuss how these developments have
-influenced the threat landscape over the last year.
+In this essay, I provide an overview of state-of-the-art Inversion Attacks and
+their defenses to Federated Learning. Besides informing on the state-of-the-art,
+this essay should provide an introduction to the subject for both machine
+learning and cyber security specialists. First, we will discuss the basics of
+Federated Learning, introduce attacks on Machine Learning models, and consider a
+taxonomy of Inference Attacks on Federated Learning. Then, I will present
+novel attacks and some of their defenses. Finally, we will discuss the threat
+these attacks present when considering the defenses and present future work to
+accommodate for these threats.
 
 # Background
-
-> - [ ] Introduce Federated Learning from basic principles
-> - [ ] Introduce machine learning exploits, focussing on inference attacks
-> - [ ] Cover the state of FL inference up until last year
->
-> $\Rightarrow$ We have a good understanding of FL and inference attacks
 
 In this section, the necessary background information will be introduced. The
 background is considered whatever already existed until last year (March 2022).
@@ -72,35 +58,31 @@ the machine-learning process can be separated into 3 stages:
 2. Testing/Evaluation
 3. Deployment
 
-During training, the machine learning model, $f$ is given a set of tuples $\{(x_i,
-y_i)\}$. The learning algorithm then adjusts the model parameters, $\theta$,
-such that it, $f_\theta$, maps the input features $x$ to the target value(s)
-$y$. Depending on the learning task, $y$ could be a continuous value
-(regression), a binary value (binary classification), or a set of discrete
-values (multi-class classification) [@abadSecurityPrivacyFederated2022,
-@chakrabortyAdversarialAttacksDefences2018].
+During training, the machine learning model, $f$ is given a set of tuples
+$\{(x_i, y_i)\}$. The learning algorithm then adjusts the model parameters,
+$\theta$, such that the model after training, $f_\theta$, maps the input
+features $x$ to the target value(s) $y$. Depending on the learning task, $y$
+could be a continuous value (regression), a binary value (binary
+classification), or a set of discrete values (multi-class classification)[^ml_types]
+[@abadSecurityPrivacyFederated2022; @chakrabortyAdversarialAttacksDefences2018].
 
-<!-- TODO: Add a footnote that this is correct but not complete (unsupervised
-learning etc.)? -->
+[^ml_types]: More types of machine learning exist
+[@opreaAdversarialMachineLearning2023], but the details of their taxonomy are
+not important for this discussion. The focus will be on Federated Learning
+which, almost exclusively uses supervised learning.
 
 The testing phase assesses the performance of the model. We take a similar, but
-unseen set of tuples $\{(x, y)\}$ and test whether the model, $f_\theta(x)$
+unseen set of tuples $\{(x, y)\}$ and test whether the model, $f_\theta(x)$,
 returns the correct value(s). It's important to only test on _unseen_ data since
 the aim is to assess the _generalizing_ ability of the model. One can imagine
 the performance to be higher if the same data that was used to train, was used
 to test.
 
-After reaching convergence, when the model does not improve further, it is
-deployed to a public, or private, interface.
+After the model is trained and evaluated, it is then deployed. Often accessed
+via a public or private API. In the case of Federated Learning, this process is
+iterative.
 
 ## Federated Learning
-
-> - [ ] what is federated learning
->   - [ ] what does it solve
->   - [ ] how does it work
->
-> $\Rightarrow$ We can **explain how Federated Learning works** and **describe the
-> problems it tries to solve**. 
 
 Federated Learning (FL) is a method of delegating, or democratizing, the
 training stage of a machine learning algorithm. Its benefits are threefold
@@ -111,11 +93,12 @@ training stage of a machine learning algorithm. Its benefits are threefold
 3. Data that is fragmented over multiple locations can still be used for
    training.
 
-The process, generally, works as follows. A set of clients, $C={c_0, \ldots,
-c_n}$, with each their own dataset, train a machine learning model on that
-dataset. Information about this trained model is then sent to a central server
-that _aggregates_ the information from all clients into a single model. The
-newly trained model is then sent back to the clients for another iteration
+The process, generally, works as follows. Each client in set of clients,
+$C=\{c_0, \ldots, c_n\}$, trains a private machine learning model their
+respective dataset. Information about this trained model is then sent to a
+central server that _aggregates_ the information from all clients into a single
+model. The newly trained model is then sent back to the clients for another
+iteration[^fl_topology]
 [@abadSecurityPrivacyFederated2022,@konecnyFederatedLearningStrategies2017].
 
 ![Typical Federated Learning network topology. The client, $c_i$, sends the
@@ -126,33 +109,41 @@ $\theta_{i+1}$ initiating the next iteration.
 
 Various aggregation algorithms exist. The most popular of which are _Federated
 Stochastic Gradient Descent_ (FedSGD) and _Federated Averaging_ (FedAvg). These
-both use the _gradient_ (the function that describes how to optimize the model)
-or the aforementioned parameters, $\theta$, of the client models to optimize the
-central model
+use the _gradient_ (the function that describes how to optimize the model) or
+the aforementioned parameters, $\theta$, of the client models respectively when
+communicating model updates
 [@abadSecurityPrivacyFederated2022,@guCSMIAMembershipInference2022]. While
 technical details of these algorithms are not crucial to this discussion, it is
-important to note that this gradient contains information about the distribution
-of the client's dataset.
+important to note that both the gradient and the weights contain embedded
+information about the client's dataset [@fredriksonModelInversionAttacks2015; @geipingInvertingGradientsHow2020].
 
-<!-- TODO: Add a footnote that the aggregation methods also influence the local
-training methods -->
+### Vertical versus Horizontal FL
 
 Lastly, there are two types of FL: Horizontal Federated Learning (HFL), or
 cross-device Federated Learning; and Vertical Federated Learning (VFL), or
 cross-silo Federated Learning
-[@suriSubjectMembershipInference2022,@abadSecurityPrivacyFederated2022]. In the
-first, devices all collect data on the same features, but their sample space is
-not equal (the distributions might not align, and the size can be different). In
-the latter, we can imagine a set of hospitals, companies (or _data silos_) that
-need to train a model on _all_ the available user data. The data, however,
-cannot be directly shared and the data they collect on their users is also
-different. Each user is present in each database (they share the same sample
-space), but the features on each measurement might be different. HFL is much
-more prevalent than VFL [@].
+[@suriSubjectMembershipInference2022; @abadSecurityPrivacyFederated2022]. These
+differentiate in the way the client data is aligned to provide a trainable
+model.
 
-<!-- TODO: Improve explanation and include a reference to subject inference -->
+In the former, devices all collect data on the same features, but their sample
+space is not equal (the distributions might not align, and the size can be
+different). This is the most used type of Federated Learning, which also is how
+companies such as Google train their models on user data
+[@mcmahanFederatedLearningCollaborative2017].
 
-<!-- TODO: Mention that there are other network architectures for FL -->
+In the latter, we can imagine a set of hospitals or companies (or _data silos_)
+that need to train a model on _all_ the available user data. The data, however,
+cannot be directly shared and the kind of data they collect on their users is also
+different. Regardless, each user, or _subject_, is present in each database.
+They thus share the same sample space but differ in the features they train
+their local models on.
+
+[^fl_topology]: Other network topologies are possible within Federated Learning.
+One notable example is a peer-to-peer network which allows for a completely
+decentralized machine-learning approach. Most actual implemented systems,
+however, have a normal client-server structure
+[@abadSecurityPrivacyFederated2022].
 
 ## Attacking Machine Learning
 
@@ -171,10 +162,12 @@ correspond directly to different attacks which can be categorized as follows
 training data, takes place during the training time of the machine learning
 model. An adversary tries to poison the training data by injecting carefully
 designed samples to compromise the whole learning process eventually.
+
 2. _Evasion Attack_: This is the most common type of attack in the adversarial
 setting. The adversary tries to evade the system by adjusting malicious samples
 during the testing phase. This setting does not assume any influence over the
 training data.
+
 3. _Inference/Exploratory Attack_: These attacks do not influence any dataset. Given
 black-box access to the model, they try to gain as much knowledge as possible
 about the learning algorithm of the underlying system and pattern in training
@@ -197,16 +190,7 @@ powerful such an attack could be. For this reason, they are also further
 specified as _white-box_ or _black-box_, and sometimes _grey-box_ inference
 attacks [@nasrComprehensivePrivacyAnalysis2019].
 
-<!-- TODO: This last sentence is iffy -->
-
 ## Inference Attacks
-
-> - [ ] Give an overview of inference attack classifications
-> - [ ] Provide an example of an inference attack
->
-> $\Rightarrow$ We should **be able to classify different attacks, understand
-> how they work**, and see **how they can compromise the privacy of an
-> individual using the system**
 
 Inference attacks can be applied to both centralized machine learning models and
 Federated Learning schemes. Many of the principles we will cover apply to both
@@ -228,15 +212,9 @@ data point $(x, y)$ was part of the training set. In FL it is also possible to
 determine whether a data point was part of the training set of a particular
 client.
 
-- _Property Inference_: This attack leverages model snapshot updates concerning
-a dataset without the objective property and another one containing it.
-Afterward, a trained binary classifier can relate the property with an unseen
-update, e.g., an update got by eavesdropping, to conclude whether the update
-owns the objective property. For a data piece $x$ containing the property $p:
-x^{(p)}$ belonging to the dataset $D_n$ being $n$ the number of clients, the
-attacker infers if the property belongs to the dataset $x^{(p)} \in D_n$.
-
-<!-- TODO: Should this Property Inference be included? -->
+- _Property Inference_: Property inference attempts to detect whether the
+dataset used to train the (local) model contains some property (e.g. whether
+images are noisy) [@ganjuPropertyInferenceAttacks2018].
 
 Secondly, when considering a malicious central server, the attack can be
 classified according to the manner in which the attacker interferes with the
@@ -262,13 +240,6 @@ databases but can access the gradients/parameters sent by all clients and the
 global model.
 
 # Inference Attacks in Federated Learning
-
-> - [ ] Describe state-of-the-art of model inversion in Federated Learning
-> - [ ] Quickly determine how they relate to other attacks and interpret their
->   significance.
->
-> $\Rightarrow$ Be able to **describe the state-of-the-art of inversion attacks
-> on Federated Learning** and **describe the risk profile of each**.
 
 This section will discuss the state-of-the-art of inference attacks on Federated
 Learning. Specifically, we will discuss progress in the field as of March 2022.
@@ -303,7 +274,7 @@ learning rate and stability, and is therefore ubiquitous in modern machine
 learning. The technique introduces two learned parameters, $\beta$ and $\gamma$,
 which thus change during the learning
 process[@ioffeBatchNormalizationAccelerating2015]. Previous work has assumed
-these statistics to be static [@geipingInvertingGradientsHow2020,
+these statistics to be static [@geipingInvertingGradientsHow2020;
 @kaissisEndtoendPrivacyPreserving2021], introducing an error that would compound
 over time. The authors were able to reliably reconstruct images without assuming
 static BN statistics. The authors make a strong case for an inversion attack
@@ -334,7 +305,7 @@ Keywords: _Membership Inference_, _Local/Global_, _Cross-Device/VFL_, _Passive_
 @guCSMIAMembershipInference2022 were able to determine whether data points are
 members of certain datasets by following the trend in their classification
 confidence. Over time, the global model should perform less well on
-participant's private data, meaning that member data should follow a different
+participants' private data, meaning that member data should follow a different
 trend compared to non-member data. They then train a supervised model the
 determine whether data points were part of the training set based on this
 assumption. The model is then used to determine the probability of unseen data
@@ -354,7 +325,7 @@ disconnected from real-world scenarios as it (i) includes information
 adversaries would not normally have access to and (ii) assumes the adversary is
 looking for data points rather than individuals. Instead of determining whether
 one particular data point was part of the training set, the authors attempt to
-infer whether an individual, a _subject, (or rather their distribution) is
+infer whether an individual, a _subject_, (or rather their distribution) is
 present in the dataset given some preexisting information on them. They show
 the attack to be very effective in various real-world datasets while also
 increasing the realism of the scenario. They show Subject Inference to be a
@@ -377,15 +348,6 @@ privacy methods should be proposed to deal with such attacks.
 
 ## Defending
 
-> - [ ] How can some of the aforementioned attacks be prevented or their risks
-> reduced
-> - [ ] What are the trade-offs, and do they make any implicit/explicit
-> assumptions?
->
-> $\Rightarrow$ We can **describe some tactics to mitigate the impact of the
-> aforementioned attacks** and **use them in the context of a cost/benefit
-> analysis**
-
 To combat inference attacks, we discuss potential defenses against them. Some of
 the papers that are included have been discussed in the last section. These have
 been marked with a footnote accordingly [^1]. For each paper, we will summarize
@@ -395,7 +357,7 @@ the proposed measures and briefly discuss them.
 
 @gengImprovedGradientInversion2023 found that labels that only appeared only
 once were more prone to their proposed inversion attacks (see
-[](#improved-gradient-inversion-attacks-and-defenses-in-federated-learning)).
+[Attacks](#improved-gradient-inversion-attacks-and-defenses-in-federated-learning)).
 They also mention the use of larger batch sizes in the global model (i.e. more
 clients) to reduce the amount of private information embedded in a single batch.
 Lastly, they claim FedAVG possesses "stronger privacy preserving capabilities
@@ -409,7 +371,7 @@ existing implementations of FL safer, namely: (i) larger training sets, (ii)
 updates from a larger number of iterations over different (iii) large batch
 sizes. In addition, they mention three more changes that could potentially
 mitigate server-side (i.e. _Global_) gradient inversion attacks: (1) The use of
-_Homomorphic Encryption_ (see [Discussion](#discussion)), (2) ensuring the
+_Homomorphic Encryption_ (see [Future Work](#future-work)), (2) ensuring the
 attacker does not have knowledge of the model architecture, and (3) using an
 alternative aggregation algorithm such as FedBN [@liFedBNFederatedLearning2021,
 @andreuxSiloedFederatedLearning2020]. The countermeasures provided are
@@ -422,20 +384,20 @@ more viable alternative to differential privacy
 [@dworkAlgorithmicFoundationsDifferential2013]. Image augmentation is a data
 synthesis method that increases the size of the training set, and reduces
 over-fitting [@shortenSurveyImageData2019]. As this introduces fake data while
-improving the over-all performance of the model, the authors suggest it could be
-used to mitigate model inversion attacks. They attack they used was introduced
+improving the overall performance of the model, the authors suggest it could be
+used to mitigate model inversion attacks. The attack they used was introduced
 by [@geipingInvertingGradientsHow2020], and various more successful attacks have
 been constructed since then [@hatamizadehGradientInversionAttacks2023,@gengImprovedGradientInversion2023].
 
 ### ResSFL: A Resistance Transfer Framework for Defending Model Inversion Attack in Split Federated Learning
 
 In a framework introduced by [@liResSFLResistanceTransfer2022], Split Federated
-Learning (SFL) [@annavaramGroupKnowledgeTransfer] is augmented with an
-discriminator-like model that attempts to invert the model before the client
+Learning (SFL) [@annavaramGroupKnowledgeTransfer] is augmented with a
+ model that attempts to invert the model before the client
 sends their model to the central server. By choosing weights where the
 discriminator performs poorly, they claim to improve the resiliency of the
 scheme to model inversion attacks. They indeed show improvements over the
-standard implementation of SFL, but do not mention how this method compares to
+standard implementation of SFL but do not mention how this method compares to
 attacks on default FL.
 
 [^1]: Often, novel attack proposals also include possible countermeasures. Some
@@ -443,15 +405,6 @@ of the papers covered in the last section, therefore, have also been included in
 this section.
 
 # Discussion
-
-> - [ ] What can we say about the threat these attacks pose?
->   - [ ] How effective are these defenses?
->   - [ ] What is the trade-off?
-> - [ ] What research can be done to mitigate these risks?
->
-> $\Rightarrow$ We **understand what the current threat landscape for IA on FL
-> looks like** and **know where to improve understanding to mitigate the
-> risks**.
 
 In this section, we will discuss the attacks and defenses as presented in the
 last section. Specifically, we determine the threats these attacks pose and if
@@ -476,7 +429,7 @@ encrypted, such attacks could possibly be mitigated
 [@liPrivacyThreatsAnalysis2021].
 
 - _Increased Resilience Against Existing Privacy Measures_: Some of the
-aforementioned papers have shown improvements concerning the evasion of
+aforementioned papers has shown improvements concerning the evasion of
 privacy-preserving measures. @nguyenActiveMembershipInference2023 have shown
 how a membership inference attack can be effectively performed in the presence
 of differential privacy. Their method was effective to such a degree that the
@@ -493,7 +446,7 @@ previous methods by a large margin.
 
 Such developments are not surprising, progress in both offense and defense is to
 be expected. The speed at which research moves forward is very impressive and
-suggests the field is still in early stages of development. When considering
+suggests the field is still in the early stages of development. When considering
 using such new technologies in production, this could be considered when
 assessing the security of such systems.
 
@@ -508,28 +461,33 @@ both either use or suggest using existing pre-processing or other
 learning-enhancing augmentations to improve privacy. Efforts toward generalizing
 data _before_ training might prove a solution to both overfitting and privacy.
 
-2. New attack methods would benefit from relaxing assumptions over instead
-performance. Various of the attacks shown here have been able to relax
-assumptions to a provide a more realistic assessment of the privacy-preserving
-features of FL. While performance improvements might provide interesting result
-and insights, focussing efforts on exposing potential _realistic_ threats would
-have a more direct effect on our ability to asses FL from a privacy perspective.
+2. New attack methods would benefit from relaxing assumptions instead of
+attempting to increase performance. By doing this, various of the attacks shown
+have been to provide a more realistic view of the privacy-preserving features of
+FL. While performance improvements might provide interesting results and
+insights, focusing efforts on exposing potential _realistic_ threats would have
+a more direct effect on our ability to assess FL from a privacy perspective.
+
+3. Working, safe Homomorphic Encryption (HE) would hamper most of the
+aforementioned attacks. Being able to encrypt data _before_ training a model
+would make inference attacks completely benign
+[@leePrivacyPreservingMachineLearning2022]. Work from the past year, however,
+was able to infer privacy-sensitive information about the training set
+regardless of the presence of HE [@liPrivacyThreatsAnalysis2021]. More research
+on the robust use of HE could prove a catch-all solution for many of the
+presented machine-learning attacks.
 
 # Conclusion
-
-> - [ ] How 'risky' are the tactics described in this essay
-> - [ ] Do the defenses have any real impact on the risk of these attacks
-> - [ ] What would we need to research to improve any of these risks
->
-> $\Rightarrow$ We can **describe the overall risk of model inversion attacks on
-> federated learning** and **build on top of this paper to reduce their risks
-> and improve our understanding**
 
 This essay has provided an overview for security specialists and machine
 learning specialists to assess the current state of Inference Attacks in
 Federated Learning. Progress over the last year has shown the field to be
 advancing quickly. Introducing successful attacks on new, more realistic
 scenarios, showing the ability to circumvent mature privacy-preserving, measures
-and improving the performance of existing methods.
+and improving the performance of existing methods. The developments seen here
+are concerning given the prevalence of Federated Learning. More research is
+needed to assess how privacy-preserving Federated Learning actually is and
+whether additional countermeasures provide enough security to circumvent the
+apparent threats presented here.
 
 # References
